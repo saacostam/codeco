@@ -10,6 +10,6 @@ export function Header({
     className,
 }: PropsWithChildren<HeaderProps>) {
     return (
-        <h1 className={twMerge("text-3xl text-primary font-bold", className)}>{children}</h1>
+        <h1 className={twMerge("text-3xl text-primary font-semibold", className)}>{children}</h1>
     )
 }
