@@ -2,7 +2,7 @@ export function Navbar(){
     return (
         <div className="navbar bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost text-2xl" href="/">CoDeCo</a>
+                <a className="btn btn-ghost text-2xl" href="#/">CoDeCo</a>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
@@ -10,8 +10,8 @@ export function Navbar(){
                     <details>
                         <summary>Methods</summary>
                         <ul className="bg-base-100 rounded-t-none p-2">
-                            <li><a>Basic</a></li>
-                            <li><a>Huffman</a></li>
+                            <li><a href="/#/Huffman">Basic</a></li>
+                            <li><a href="/#/Huffman">Huffman</a></li>
                         </ul>
                     </details>
                 </li>
