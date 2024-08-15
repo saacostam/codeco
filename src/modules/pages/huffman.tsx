@@ -42,12 +42,12 @@ export function HuffmanPage(){
     return (
         <>
             <Header className="text-center mb-8">Huffman Coding</Header>
-            <label className="form-control mb-4">
+            <label className="form-control">
                 <div className="label">
                     <span className="label-text">Write the message you want to encode:</span>
                 </div>
                 <textarea
-                    className="textarea textarea-primary textarea-bordered rounded h-24" 
+                    className="textarea textarea-primary textarea-bordered rounded h-20" 
                     placeholder="Messsage:"
                     onChange={(e) => setMessage(e.target.value.slice(0, MAX_MESSAGE))}
                     value={message}
@@ -58,7 +58,7 @@ export function HuffmanPage(){
                 </div>
             </label>
             <section className="overflow-x-auto mb-8">
-                <SubHeader className="text-center mb-8">Huffman Tree</SubHeader>
+                <SubHeader className="text-center mb-4">Huffman Tree</SubHeader>
                 {tree && renderNode(tree)}
             </section>
             <section className="flex flex-col items-center">
