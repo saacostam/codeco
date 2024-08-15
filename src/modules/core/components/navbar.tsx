@@ -1,10 +1,11 @@
 import { ALGORITHMS } from "../../algorithms";
+import { LogoIcon } from "../../icons";
 
 export function Navbar(){
     return (
         <div className="navbar bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost text-2xl" href="./#/">CoDeCo</a>
+                <a className="btn btn-ghost text-2xl" href="./#/"><LogoIcon/> CoDeCo</a>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
