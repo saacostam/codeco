@@ -28,8 +28,8 @@ export function HuffmanPage(){
         return (
             <div className="flex flex-col grow">
                 <div className="m-2 p-1 rounded outline outline-1 flex flex-col items-center text-sm" style={{ backgroundColor: colorScale.getColor(depth).toHexString()}}>
-                    <span>{char === " " ? "SPACE" : char || "_"}</span>
-                    <span>{freq || 0}</span>
+                    {char && <span>{char ? <kbd className="kbd kbd-xs">{char === ' ' ? 'space' : char}</kbd> : "_"}</span>}
+                    <span className="font-semibold">{freq || 0}</span>
                 </div>
                 <div className="flex w-100">
                     {left && renderNode(left, depth+1)}
@@ -41,7 +41,7 @@ export function HuffmanPage(){
 
     return (
         <>
-            <Header className="text-center mb-8">Huffman Coding</Header>
+            <Header className="text-center mb-8">Huffman Code</Header>
             <label className="form-control">
                 <div className="label">
                     <span className="label-text">Write the message you want to encode:</span>
