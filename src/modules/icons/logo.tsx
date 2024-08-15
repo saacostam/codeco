@@ -18,14 +18,14 @@ export function LogoIcon({
                 <path fill="#3f3f3f" d="m52.7421,27.7526l-3.4453-.0401c-.499.189-.6415,5.5357-.0034,6.2814h3.0961s2.7955-.5886,2.4704-3.7291c-.3754-2.5138-1.5545-2.5138-2.1178-2.5122Z"/>
             </g>
             <g id="line">
-                <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m33.7378,45.9332c8.2843,0,15-6.7157,15-15s-6.7157-15-15-15v30Z"/>
-                <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m52.6418,27.9625c1.6565.0351,2.9709,1.4064,2.9358,3.0629-.0351,1.6565-1.4064,2.9709-3.0629,2.9358"/>
-                <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18.4115,32.4905h-4.3872s-.7404.0215-.7404-1.5303.7404-1.5305.7404-1.5305h4.3872v3.0608Z"/>
-                <line x1="24.1309" x2="33.7378" y1="30.9332" y2="30.9332" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                <line x1="22.1212" x2="33.7378" y1="27.6488" y2="15.9332" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                <line x1="22.1564" x2="33.7378" y1="34.2741" y2="45.9332" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                <line x1="40.2378" x2="58.8314" y1="59.999" y2="59.999" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                <polyline fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="48.8004 59.999 51.7041 38.197 54.9527 38.197 52.049 59.999"/>
+                <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m33.7378,45.9332c8.2843,0,15-6.7157,15-15s-6.7157-15-15-15v30Z"/>
+                <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m52.6418,27.9625c1.6565.0351,2.9709,1.4064,2.9358,3.0629-.0351,1.6565-1.4064,2.9709-3.0629,2.9358"/>
+                <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m18.4115,32.4905h-4.3872s-.7404.0215-.7404-1.5303.7404-1.5305.7404-1.5305h4.3872v3.0608Z"/>
+                <line x1="24.1309" x2="33.7378" y1="30.9332" y2="30.9332" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+                <line x1="22.1212" x2="33.7378" y1="27.6488" y2="15.9332" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+                <line x1="22.1564" x2="33.7378" y1="34.2741" y2="45.9332" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+                <line x1="40.2378" x2="58.8314" y1="59.999" y2="59.999" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+                <polyline fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" points="48.8004 59.999 51.7041 38.197 54.9527 38.197 52.049 59.999"/>
             </g>
         </svg>
 
