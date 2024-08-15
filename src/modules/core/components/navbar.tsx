@@ -1,3 +1,5 @@
+import { ALGORITHMS } from "../../algorithms";
+
 export function Navbar(){
     return (
         <div className="navbar bg-base-200">
@@ -8,10 +10,13 @@ export function Navbar(){
                 <ul className="menu menu-horizontal px-1">
                 <li>
                     <details>
-                        <summary>Methods</summary>
+                        <summary>Select an Algorithm</summary>
                         <ul className="bg-base-100 rounded-t-none p-2">
-                            <li><a href="./#/Huffman">Basic</a></li>
-                            <li><a href="./#/Huffman">Huffman</a></li>
+                            {
+                                ALGORITHMS.map(({ id, title }) => (
+                                    <li><a href={`./#/${id}`}>{title}</a></li>
+                                ))
+                            }
                         </ul>
                     </details>
                 </li>

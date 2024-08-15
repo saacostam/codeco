@@ -1,21 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { RouterProvider, createHashRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
 import './index.css'
 import { Navbar } from './modules/core'
-import { HomePage, HuffmanPage } from './modules/pages'
-
-const router = createHashRouter([
-  {
-    path: '/',
-    element: <HomePage/>
-  },
-  {
-    path: '/huffman',
-    element: <HuffmanPage/>
-  }
-])
+import { router } from './modules/router'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
