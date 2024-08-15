@@ -15,7 +15,7 @@ export function Navbar(){
                         <ul className="bg-base-100 rounded-t-none p-2">
                             {
                                 ALGORITHMS.map(({ id, title }) => (
-                                    <li><a href={`./#/${id}`}>{title}</a></li>
+                                    <li key={id}><a href={`./#/${id}`}>{title}</a></li>
                                 ))
                             }
                         </ul>
