@@ -72,10 +72,10 @@ export function huffmanDecoding(encodedText: string, huffCodes: Map<string, stri
     return decodedText;
 }
 
-const text = "this is an example for huffman encoding";
-const [encodedText, huffCodes] = huffmanEncoding(text);
-console.log(`Encoded: ${encodedText}`);
-console.log(`Codes: ${JSON.stringify(Array.from(huffCodes.entries()))}`);
+// const text = "this is an example for huffman encoding";
+// const [encodedText, huffCodes] = huffmanEncoding(text);
+// console.log(`Encoded: ${encodedText}`);
+// console.log(`Codes: ${JSON.stringify(Array.from(huffCodes.entries()))}`);
 
-const decodedText = huffmanDecoding(encodedText, huffCodes);
-console.log(`Decoded: ${decodedText}`);
+// const decodedText = huffmanDecoding(encodedText, huffCodes);
+// console.log(`Decoded: ${decodedText}`);
