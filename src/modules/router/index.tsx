@@ -10,5 +10,9 @@ export const router = createHashRouter([
     ...ALGORITHMS.map(({ id, page }) => ({
       path: id,
       element: page,
-    }))
+    })),
+    {
+      path: '/*',
+      element: <HomePage/>,
+    }
 ])
