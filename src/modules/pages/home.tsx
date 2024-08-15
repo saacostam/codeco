@@ -7,7 +7,7 @@ import { BookIcon, ClickIcon } from "../icons";
 export function HomePage(){
     return (
         <>
-            <Header className="text-center mb-8">Available Algorithms</Header>
+            <Header className="text-center my-9">Available Algorithms</Header>
             {
                 ALGORITHMS.map(({ id, title, description, source }) => (
                     <div className="card bg-base-100 shadow-xl" key={id}>
