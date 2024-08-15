@@ -26,7 +26,7 @@ export function HuffmanPage(){
 
     function renderNode({char, freq, left, right}: Node, depth = 0){
         return (
-            <div className="flex flex-col grow mb-2">
+            <div className="flex flex-col grow">
                 <div className="m-2 p-1 rounded outline outline-1 flex flex-col items-center text-sm" style={{ backgroundColor: colorScale.getColor(depth).toHexString()}}>
                     <span>{char === " " ? "SPACE" : char || "_"}</span>
                     <span>{freq || 0}</span>
@@ -57,7 +57,7 @@ export function HuffmanPage(){
                     <span className={twMerge("label-text-alt font-semibold", message.length === MAX_MESSAGE ? "text-error" : "")}>{message.length >= MAX_MESSAGE && "Max message limit!"} ({message.length}/{MAX_MESSAGE})</span>
                 </div>
             </label>
-            <section>
+            <section className="overflow-x-auto mb-8">
                 <SubHeader className="text-center mb-8">Huffman Tree</SubHeader>
                 {tree && renderNode(tree)}
             </section>
