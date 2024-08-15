@@ -1,5 +1,7 @@
 import { createHashRouter } from "react-router-dom";
+
 import { ALGORITHMS } from "../algorithms";
+import { AlgorithmLayout } from "../core";
 import { HomePage } from "../pages";
 
 export const router = createHashRouter([
@@ -9,7 +11,7 @@ export const router = createHashRouter([
     },
     ...ALGORITHMS.map(({ id, page }) => ({
       path: id,
-      element: page,
+      element: <AlgorithmLayout>{page}</AlgorithmLayout>,
     })),
     {
       path: '/*',
