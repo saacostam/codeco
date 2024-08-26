@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { Header, SubHeader } from "../core";
@@ -10,16 +10,6 @@ const MAX_MESSAGE = 201;
 
 export function HuffmanPage(){
     const [message, setMessage] = useState("Hello World");
-    const totalSteps = Math.max(message.length - 1, MIN_MESSAGE);
-
-    const [step, _setStep] = useState<number>(MIN_MESSAGE);
-    const setStep = useCallback((v: React.SetStateAction<number>) => _setStep(prev => {
-        const newValue = v instanceof Function ? v(prev) : v;
-        return Math.max(0, Math.min(newValue, totalSteps))
-    }), [totalSteps]);
-
-    const resetCurrentStep = () => setStep(totalSteps);
-    useEffect(resetCurrentStep, [totalSteps, setStep]);
 
     const {root: tree, depth} = useMemo(() => buildHuffmanTree(message), [message])
     const colorScale = useMemo(() => new ColorScale(MIN_MESSAGE, Math.max(depth-1, MIN_MESSAGE + 1), ["#70CFDC", "#ffffff"]), [depth]);
@@ -60,14 +50,6 @@ export function HuffmanPage(){
             <section className="overflow-x-auto mb-8">
                 <SubHeader className="text-center mb-4">Huffman Tree</SubHeader>
                 {tree && renderNode(tree)}
-            </section>
-            <section className="flex flex-col items-center">
-                <progress className="progress progress-info w-full mb-4 outline outline-1" value={step} max={totalSteps}></progress>
-                <div className="join mx-auto">
-                    <button className="join-item btn btn-sm btn-outline" onClick={() => setStep(prev => prev-1)}>«</button>
-                    <div className="join-item btn btn-sm btn-outline">STEP {step}/{totalSteps}</div>
-                    <button className="join-item btn btn-sm btn-outline" onClick={() => setStep(prev => prev+1)}>»</button>
-                </div>
             </section>
         </>
     )
