@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { Header, SubHeader } from "../core";
 import { buildHuffmanTree, Node } from "../algorithms/huffman";
 import ColorScale from "color-scales";
+import { TreeIcon } from "../icons";
 
 const MIN_MESSAGE = 0;
 const MAX_MESSAGE = 201;
@@ -49,7 +50,13 @@ export function HuffmanPage(){
             </label>
             <section className="overflow-x-auto mb-8">
                 <SubHeader className="text-center mb-4">Huffman Tree</SubHeader>
-                {tree && renderNode(tree)}
+                {tree ? renderNode(tree) : <>
+                    <TreeIcon className="w-48 h-48 block mx-auto"/>
+                    <div className="w-fit mx-auto alert alert-success block max-w-64">
+                        <SubHeader className="text-center text-lg block">Empty Message!</SubHeader>
+                        <p className="text-center">Add a message to display the output huffman tree.</p>
+                    </div>
+                </>}
             </section>
         </>
     )
