@@ -52,11 +52,16 @@ export function generateCodes(
     return codebook;
 }
 
-export function huffmanEncoding(text: string): [string, Map<string, string>] {
-    const { root } = buildHuffmanTree(text);
+export function huffmanEncoding(text: string) {
+    const { root, depth } = buildHuffmanTree(text);
     const huffCodes = generateCodes(root);
     const encodedText = Array.from(text).map(char => huffCodes.get(char) || '').join('');
-    return [encodedText, huffCodes];
+    return {
+        encodedText,
+        huffCodes,
+        root,
+        depth,
+    };
 }
 
 export function huffmanDecoding(encodedText: string, huffCodes: Map<string, string>): string {

@@ -3,7 +3,7 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import { twMerge } from "tailwind-merge";
 
 import { Header, SubHeader } from "../core";
-import { buildHuffmanTree, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
+import { huffmanEncoding, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
 import ColorScale from "color-scales";
 import { TreeIcon } from "../icons";
 
@@ -13,7 +13,7 @@ const MAX_MESSAGE = 201;
 export function HuffmanPage(){
     const [message, setMessage] = useState("Hello World");
 
-    const {root: tree, depth} = useMemo(() => buildHuffmanTree(message), [message])
+    const {root: tree, depth, encodedText} = useMemo(() => huffmanEncoding(message), [message])
     const colorScale = useMemo(() => new ColorScale(MIN_MESSAGE, Math.max(depth-1, MIN_MESSAGE + 1), ["#70CFDC", "#ffffff"]), [depth]);
 
     function renderNode({char, freq, left, right}: Node, depth = 0){
@@ -58,6 +58,12 @@ export function HuffmanPage(){
                         <p className="text-center">Add a message to display the output huffman tree.</p>
                     </div>
                 </>}
+            </section>
+            <section className="mb-8">
+                <SubHeader className="text-center mb-4">Encoding</SubHeader>
+                <div className="mockup-code">
+                    <pre data-prefix=">" className="text-success"><code>{encodedText}</code></pre>
+                </div>
             </section>
             <section className="overflow-x-auto mb-8">
                 <SubHeader className="text-center mb-4">Source Code</SubHeader>
