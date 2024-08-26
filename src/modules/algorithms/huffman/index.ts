@@ -1,4 +1,5 @@
 export * from './node';
+export * from './source-code';
 import { Node } from './node';
 
 export function buildHuffmanTree(text: string) {
@@ -36,7 +37,11 @@ export function buildHuffmanTree(text: string) {
     };
 }
 
-export function generateCodes(node: Node | null, prefix: string = '', codebook: Map<string, string> = new Map()): Map<string, string> {
+export function generateCodes(
+    node: Node | null, 
+    prefix: string = '', 
+    codebook: Map<string, string> = new Map()
+): Map<string, string> {
     if (node) {
         if (node.char !== null) {
             codebook.set(node.char, prefix);

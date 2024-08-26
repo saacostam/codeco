@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
+import { CopyBlock, dracula } from "react-code-blocks";
 import { twMerge } from "tailwind-merge";
 
 import { Header, SubHeader } from "../core";
-import { buildHuffmanTree, Node } from "../algorithms/huffman";
+import { buildHuffmanTree, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
 import ColorScale from "color-scales";
 import { TreeIcon } from "../icons";
 
@@ -57,6 +58,15 @@ export function HuffmanPage(){
                         <p className="text-center">Add a message to display the output huffman tree.</p>
                     </div>
                 </>}
+            </section>
+            <section className="overflow-x-auto mb-8">
+                <SubHeader className="text-center mb-4">Source Code</SubHeader>
+                <CopyBlock
+                    text={HUFFMAN_SOURCE_CODE}
+                    language="typescript"
+                    showLineNumbers
+                    theme={dracula}
+                />
             </section>
         </>
     )
