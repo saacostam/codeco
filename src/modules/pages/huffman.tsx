@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { Header, SubHeader } from "../core";
 import { huffmanEncoding, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
 import ColorScale from "color-scales";
-import { TreeIcon } from "../icons";
+import { ChevronIcon, TreeIcon } from "../icons";
 
 const MIN_MESSAGE = 0;
 const MAX_MESSAGE = 201;
@@ -86,14 +86,23 @@ export function HuffmanPage(){
                     <pre data-prefix=">" className="text-success"><code>{encodedText}</code></pre>
                 </div>
             </section>
-            <section className="overflow-x-auto mb-8">
-                <SubHeader className="text-center mb-4">Source Code</SubHeader>
-                <CopyBlock
+            <section className="collapse overflow-x-auto mb-8 border-primary border">
+                <input type="checkbox" className="peer" />
+                <div
+                    className="collapse-title text-primary-content"
+                >
+                    <SubHeader className="text-center flex items-center justify-center">Source Code <ChevronIcon className="inline"/></SubHeader>
+                </div>
+                <div
+                    className="collapse-content text-primary-content"
+                >
+                    <CopyBlock
                     text={HUFFMAN_SOURCE_CODE}
                     language="typescript"
                     showLineNumbers
                     theme={dracula}
                 />
+                </div>
             </section>
         </>
     )
