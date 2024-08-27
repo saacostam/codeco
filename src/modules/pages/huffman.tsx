@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { Header, SubHeader } from "../core";
 import { huffmanEncoding, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
 import ColorScale from "color-scales";
-import { TreeIcon } from "../icons";
+import { ChevronIcon, TreeIcon } from "../icons";
 
 const MIN_MESSAGE = 0;
 const MAX_MESSAGE = 201;
@@ -13,7 +13,7 @@ const MAX_MESSAGE = 201;
 export function HuffmanPage(){
     const [message, setMessage] = useState("Hello World");
 
-    const {root: tree, depth, encodedText} = useMemo(() => huffmanEncoding(message), [message])
+    const {root: tree, depth, encodedText, huffCodes} = useMemo(() => huffmanEncoding(message), [message])
     const colorScale = useMemo(() => new ColorScale(MIN_MESSAGE, Math.max(depth-1, MIN_MESSAGE + 1), ["#70CFDC", "#ffffff"]), [depth]);
 
     function renderNode({char, freq, left, right}: Node, depth = 0){
@@ -60,19 +60,49 @@ export function HuffmanPage(){
                 </>}
             </section>
             <section className="mb-8">
+                <SubHeader className="text-center mb-4">Huffman Codes</SubHeader>
+                <table className="table table-xs table-zebra bg-base-100 border outline outline-primary w-64 mx-auto">
+                    <thead>
+                        <tr>
+                            <th>Char</th>
+                            <th>Encoding</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            [...huffCodes.entries()].map(([char, code]) => (
+                                <tr key={code}>
+                                    <th>{char ? <kbd className="kbd kbd-xs">{char === ' ' ? 'space' : char}</kbd> : "_"}</th>
+                                    <td><code>{code}</code></td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </section>
+            <section className="mb-8">
                 <SubHeader className="text-center mb-4">Encoding</SubHeader>
                 <div className="mockup-code">
                     <pre data-prefix=">" className="text-success"><code>{encodedText}</code></pre>
                 </div>
             </section>
-            <section className="overflow-x-auto mb-8">
-                <SubHeader className="text-center mb-4">Source Code</SubHeader>
-                <CopyBlock
+            <section className="collapse overflow-x-auto mb-8 border-primary border">
+                <input type="checkbox" className="peer" />
+                <div
+                    className="collapse-title text-primary-content"
+                >
+                    <SubHeader className="text-center flex items-center justify-center">Source Code <ChevronIcon className="inline"/></SubHeader>
+                </div>
+                <div
+                    className="collapse-content text-primary-content"
+                >
+                    <CopyBlock
                     text={HUFFMAN_SOURCE_CODE}
                     language="typescript"
                     showLineNumbers
                     theme={dracula}
                 />
+                </div>
             </section>
         </>
     )
