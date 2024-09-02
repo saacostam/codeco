@@ -3,7 +3,7 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import { twMerge } from "tailwind-merge";
 
 import { Header, SubHeader } from "../core";
-import { huffmanEncoding, HUFFMAN_SOURCE_CODE, Node } from "../algorithms/huffman";
+import { huffmanEncoding, HUFFMAN_SOURCE_CODE, Node, huffmanDecoding } from "../algorithms/huffman";
 import ColorScale from "color-scales";
 import { ChevronIcon, TreeIcon } from "../icons";
 
@@ -14,6 +14,7 @@ export function HuffmanPage(){
     const [message, setMessage] = useState("Hello World");
 
     const {root: tree, depth, encodedText, huffCodes} = useMemo(() => huffmanEncoding(message), [message])
+    const decodedMessage = useMemo(() => huffmanDecoding(encodedText, huffCodes), [encodedText, huffCodes])
     const colorScale = useMemo(() => new ColorScale(MIN_MESSAGE, Math.max(depth-1, MIN_MESSAGE + 1), ["#70CFDC", "#ffffff"]), [depth]);
 
     function renderNode({char, freq, left, right}: Node, depth = 0){
@@ -39,7 +40,7 @@ export function HuffmanPage(){
                     <span className="label-text">Write the message you want to encode:</span>
                 </div>
                 <textarea
-                    className="textarea textarea-primary textarea-bordered rounded h-20" 
+                    className="textarea textarea-primary textarea-bordered rounded h-20"
                     placeholder="Messsage:"
                     onChange={(e) => setMessage(e.target.value.slice(0, MAX_MESSAGE))}
                     value={message}
@@ -84,6 +85,12 @@ export function HuffmanPage(){
                 <SubHeader className="text-center mb-4">Encoding</SubHeader>
                 <div className="mockup-code">
                     <pre data-prefix=">" className="text-success"><code>{encodedText}</code></pre>
+                </div>
+            </section>
+            <section className="mb-8">
+                <SubHeader className="text-center mb-4">Decoded Message</SubHeader>
+                <div className="mockup-code">
+                    <pre data-prefix=">" className="text-success"><code>{decodedMessage}</code></pre>
                 </div>
             </section>
             <section className="collapse overflow-x-auto mb-8 border-primary border">
