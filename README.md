@@ -1,5 +1,5 @@
-# CoDeCo - Codification/Decofication Algorithm Visualizer
+# CoDeCo - Codification/Decofication Huffman Code Algorithm Visualizer
 
-This project aims to show web-based visualizations for common codification and decodification algorithms.
+This project aims to show web-based visualizations for the Huffman codification and decodification algorithms.
 
 🎯 Check the project [here](saacostam.github.io/codeco/)!
